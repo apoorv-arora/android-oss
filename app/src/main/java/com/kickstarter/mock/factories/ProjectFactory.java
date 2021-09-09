@@ -3,6 +3,7 @@ package com.kickstarter.mock.factories;
 import com.kickstarter.models.Backing;
 import com.kickstarter.models.Project;
 import com.kickstarter.models.Reward;
+import com.kickstarter.models.Urls;
 import com.kickstarter.models.User;
 
 import org.joda.time.DateTime;
@@ -23,7 +24,7 @@ public final class ProjectFactory {
     final String slug = "slug-1";
     final String projectUrl = "https://www.kickstarter.com/projects/" + String.valueOf(creator.id()) + "/" + slug;
 
-    final Project.Urls.Web web = Project.Urls.Web.builder()
+    final Urls.Web web = Urls.Web.builder()
       .project(projectUrl)
       .rewards(projectUrl + "/rewards")
       .updates(projectUrl + "/posts")
@@ -61,7 +62,7 @@ public final class ProjectFactory {
       .usdExchangeRate(1.0f)
       .slug(slug)
       .updatedAt(DateTime.now())
-      .urls(Project.Urls.builder().web(web).build())
+      .urls(Urls.builder().web(web).build())
       .video(VideoFactory.video())
       .launchedAt(new DateTime(DateTimeZone.UTC).minusDays(10))
       .deadline(new DateTime(DateTimeZone.UTC).plusDays(10))
@@ -480,7 +481,7 @@ public final class ProjectFactory {
 
   public static Project prelaunchProject(final String projectUrl) {
 
-    final Project.Urls.Web web = Project.Urls.Web.builder()
+    final Urls.Web web = Urls.Web.builder()
       .project(projectUrl)
       .rewards(projectUrl + "/rewards")
       .updates(projectUrl + "/posts")
@@ -489,7 +490,7 @@ public final class ProjectFactory {
     return project()
       .toBuilder()
       .displayPrelaunch(true)
-      .urls(Project.Urls.builder().web(web).build())
+      .urls(Urls.builder().web(web).build())
       .build();
   }
 

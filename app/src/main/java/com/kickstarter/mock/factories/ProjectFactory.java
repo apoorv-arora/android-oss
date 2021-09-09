@@ -30,7 +30,7 @@ public final class ProjectFactory {
       .updates(projectUrl + "/posts")
       .build();
 
-    return Project.builder()
+    return Project.Companion.builder()
       .availableCardTypes(Arrays.asList(CreditCardTypes.AMEX.rawValue(),
         CreditCardTypes.DINERS.rawValue(),
         CreditCardTypes.DISCOVER.rawValue(),
@@ -49,11 +49,11 @@ public final class ProjectFactory {
       .currentCurrency("USD")
       .currencyTrailingCode(true)
       .fxRate(1.0f)
-      .goal(100.0f)
+      .goal(100.0)
       .id(IdFactory.id())
       .location(LocationFactory.unitedStates())
       .name("Some Name")
-      .pledged(50.0f)
+      .pledged(50.0)
       .photo(PhotoFactory.photo())
       .rewards(Arrays.asList(RewardFactory.noReward(), RewardFactory.reward()))
       .staffPick(false)
@@ -337,8 +337,8 @@ public final class ProjectFactory {
     return project()
       .toBuilder()
       .name("halfwayProject")
-      .goal(100.0f)
-      .pledged(50.0f)
+      .goal(100.0)
+      .pledged(50.0)
       .build();
   }
 
@@ -346,8 +346,8 @@ public final class ProjectFactory {
     return project()
       .toBuilder()
       .name("allTheWayProject")
-      .goal(100.0f)
-      .pledged(100.0f)
+      .goal(100.0)
+      .pledged(100.0)
       .build();
   }
 
@@ -355,8 +355,8 @@ public final class ProjectFactory {
     return project()
       .toBuilder()
       .name("doubledGoalProject")
-      .goal(100.0f)
-      .pledged(200.0f)
+      .goal(100.0)
+      .pledged(200.0)
       .build();
   }
 
